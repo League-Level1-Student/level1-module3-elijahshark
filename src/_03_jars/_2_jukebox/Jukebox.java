@@ -37,7 +37,11 @@ public class Jukebox implements Runnable {
 		 * that was selected.
 		 */
     }
-    
+    public void play()
+    {
+        String song = "i like ya cut g.mp3";
+        
+    }
     
 	/* Use this method to add album covers to your Panel. */
 	private JLabel loadImage(String fileName) {
