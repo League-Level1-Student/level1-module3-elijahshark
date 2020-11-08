@@ -13,6 +13,7 @@ import java.net.URL;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 import javazoom.jl.player.advanced.AdvancedPlayer;
@@ -40,6 +41,7 @@ public class Jukebox implements Runnable {
     public void play()
     {
         String song = "i like ya cut g.mp3";
+        JOptionPane.showMessageDialog(null, song);
         
     }
     
