@@ -11,6 +11,7 @@ import info.gridworld.world.World;
 public class Gridworld {
 	public static void main(String[] args) {
 		Flower f = new Flower();
+		Flower f2 = new Flower();
 		World w = new World();
 		w.show();
 	Bug b = new Bug();
@@ -24,11 +25,14 @@ public class Gridworld {
 	b.setColor(Color.BLUE);
 	b.turn();
 	b.turn();
-	Location flowerLoc = f.getLocation();
-	
-	
-	
-	
-	
+	Location fl = new Location(1,2);
+	Location fl2 = new Location(1,0);
+	w.add(fl,f);
+	w.add(fl2,f2);
+	for(int i =0; i < 4; i++) {
+		for(int j = 0; j < 4; j++) {
+		System.out.println(i+" "+j);
+	}
+	}
 	}
 }
