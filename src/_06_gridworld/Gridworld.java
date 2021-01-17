@@ -29,9 +29,12 @@ public class Gridworld {
 	Location fl2 = new Location(1,0);
 	w.add(fl,f);
 	w.add(fl2,f2);
-	for(int i =0; i < 4; i++) {
-		for(int j = 0; j < 4; j++) {
-		System.out.println(i+" "+j);
+	for(int i =0; i < 10; i++) {
+		for(int j = 0; j < 10; j++) {
+		//System.out.println(i+" "+j);
+		Location loc = new Location(i,j);
+		Flower f3 = new Flower();
+		w.add(loc,f3);
 	}
 	}
 	}
