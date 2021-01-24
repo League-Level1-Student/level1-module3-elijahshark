@@ -9,20 +9,21 @@ import java.io.IOException;
 import javax.swing.JApplet;
 
 public class CowTimer {
-	private int minutes;
+	public int seconds;
 	/*
 	 * 1. Make a constructor for the CowTimer class that initializes the minutes
 	 * variable
 	 */
-	
-
+	public CowTimer(int seconds) {
+		this.seconds=seconds;
+	}
 	/* 4. Complete the main method of the CowTimerRunner class */
 
 	
 
-	public void setTime(int minutes) {
-		this.minutes = minutes;
-		System.out.println("Cow time set to " + minutes + " minutes.");
+	public void setTime(int seconds) {
+		this.seconds = seconds;
+		System.out.println("Cow time set to " + seconds + " seconds.");
 	}
 
 	public void start() throws InterruptedException {
