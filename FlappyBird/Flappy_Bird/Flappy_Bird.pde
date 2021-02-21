@@ -19,8 +19,8 @@ void draw(){
   background(back);
   image (bird, x, y);
   y+=gravity;
-fill(red, green, blue);
-rect(x, y, width, height);
+fill(3, 255, 34);
+rect(x, y, 50, 100);
 
   /*background(back);
             image (pipeBottom,250,375);
