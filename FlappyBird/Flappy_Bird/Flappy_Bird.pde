@@ -3,11 +3,14 @@ PImage back;
      PImage pipeTop;
      PImage bird;
 int pipeX = 350;
-int pipeY = 300;
+int pipeY = 325;
 int birdX = 250;
 int birdY = 300;
 int birdYVelocity = 30;
 int gravity = 1;
+int pipeXVelocity = 0;
+
+
 void setup(){
   size(600, 500);
   back = loadImage("flappyBackground.jpg");
@@ -23,6 +26,10 @@ void draw(){
   birdY+=gravity;
 fill(3, 255, 34);
 rect(pipeX, pipeY, 50, 100);
+pipeX-=pipeXVelocity;
+
+
+
 
   /*background(back);
             image (pipeBottom,250,375);
