@@ -2,33 +2,35 @@ PImage back;
      PImage pipeBottom;
      PImage pipeTop;
      PImage bird;
-int pipeX = 350;
-int pipeY = 325;
-int birdX = 250;
-int birdY = 300;
-int birdYVelocity = 30;
-int gravity = 1;
-int pipeXVelocity = 0;
-
+float pipeX = 350;
+float pipeY = 325;
+float birdX = 200;
+float birdY = 200;
+float birdYVelocity = -10;
+float gravity = 0.5;
+float pipeXVelocity = 1;
+float upperPipeHeight = (float) random(100, 400);
 
 void setup(){
-  size(600, 500);
+  size(500, 500);
   back = loadImage("flappyBackground.jpg");
   pipeBottom = loadImage("bottomPipe.png");
   pipeTop = loadImage("topPipe.png");
   bird = loadImage("bird.png");
   bird.resize(50,50);
   back.resize(width,height);
+
+
 }
 void draw(){
   background(back);
   image (bird, birdX, birdY);
-  birdY+=gravity;
+  birdY+=birdYVelocity;
 fill(3, 255, 34);
 rect(pipeX, pipeY, 50, 100);
 pipeX-=pipeXVelocity;
-
-
+birdYVelocity+=gravity;
+teleportPipes();
 
 
   /*background(back);
@@ -37,5 +39,10 @@ pipeX-=pipeXVelocity;
             image (bird, 250, 300);*/
 }
 void mousePressed(){
- birdY-=birdYVelocity;
+birdYVelocity = -10;
 }
+void teleportPipes(){
+  if(pipeX < -100){
+pipeX = 515;
+  } 
+  }
