@@ -5,14 +5,13 @@ PImage back;
      PImage bird;
 float pipeX = 350;
 float pipeY = 0;
-float pipeX2 = 
-float pipeY2 = 
 float birdX = 200;
 float birdY = 200;
 float birdYVelocity = -10;
 float gravity = 0.5;
 float pipeXVelocity = 1;
 float upperPipeHeight = (float) random(100, 300);
+float lowerY = upperPipeHeight + pipeGap;
 
 void setup(){
   size(500, 500);
@@ -23,7 +22,6 @@ void setup(){
   bird.resize(50,50);
   back.resize(width,height);
 
-
 }
 void draw(){
   background(back);
@@ -31,24 +29,34 @@ void draw(){
   birdY+=birdYVelocity;
 fill(3, 255, 34);
 rect(pipeX, pipeY, 50, upperPipeHeight);
-rect(pipeX2, pipeY2, )
+rect(pipeX, lowerY, 50, height-lowerY);
 pipeX-=pipeXVelocity;
 birdYVelocity+=gravity;
 teleportPipes();
-
+if (intersectsPipes() == true){
+exit();
+}
 
   /*background(back);
             image (pipeBottom,250,375);
             image (pipeTop,250,-130);
             image (bird, 250, 300);*/
-}
+} 
 void mousePressed(){
-birdYVelocity = -10;
+  birdYVelocity = -10;
 }
+
 void teleportPipes(){
   if(pipeX < -100){
-pipeX = 515;
-upperPipeHeight = (float) random(100, 300);
-
-} 
+    pipeX = 515;
+    upperPipeHeight = (float) random(100, 200);
+    lowerY = upperPipeHeight + pipeGap;
   }
+}
+boolean intersectsPipes() { 
+         if (birdY < upperPipeHeight && birdX > pipeX && birdX < (pipeX+50)){
+            return true; }
+        else if (birdY>lowerY && birdX > pipeX && birdX < (pipeX+50)) {
+            return true; }
+        else { return false; }
+}
