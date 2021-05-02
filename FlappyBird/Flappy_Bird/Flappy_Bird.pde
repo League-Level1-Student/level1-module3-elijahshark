@@ -1,8 +1,8 @@
 float pipeGap = 225;
 PImage back;
-     PImage pipeBottom;
-     PImage pipeTop;
-     PImage bird;
+     PImage pipe2;
+     PImage pipe;
+     PImage flappybird;
 float pipeX = 350;
 float pipeY = 0;
 float birdX = 200;
@@ -12,38 +12,48 @@ float gravity = 0.5;
 float pipeXVelocity = 1;
 float upperPipeHeight = (float) random(100, 300);
 float lowerY = upperPipeHeight + pipeGap;
+int score = 0;
 
 void setup(){
   size(500, 500);
   back = loadImage("flappyBackground.jpg");
-  pipeBottom = loadImage("bottomPipe.png");
-  pipeTop = loadImage("topPipe.png");
-  bird = loadImage("bird.png");
-  bird.resize(50,50);
+  pipe2 = loadImage("pipe2.png");
+  pipe = loadImage("pipe.png");
+  flappybird = loadImage("flappybird.png");
+  flappybird.resize(50,50);
   back.resize(width,height);
 
 }
 void draw(){
   background(back);
-  image (bird, birdX, birdY);
+  image (flappybird, birdX, birdY);
   birdY+=birdYVelocity;
 fill(3, 255, 34);
 rect(pipeX, pipeY, 50, upperPipeHeight);
 rect(pipeX, lowerY, 50, height-lowerY);
+rect(0,424,500,1);
 pipeX-=pipeXVelocity;
 birdYVelocity+=gravity;
 teleportPipes();
 if (intersectsPipes() == true){
 exit();
 }
-
-  /*background(back);
-            image (pipeBottom,250,375);
-            image (pipeTop,250,-130);
-            image (bird, 250, 300);*/
+if(birdY > 424){
+exit();
+}
+if(pipeX == birdX){
+score++;
+}
+  fill(0,0,0);
+text("score = " + score,10,10);
+  
+            image (pipe2,250,375);
+            image (pipe,250,-130);
+            image (flappybird, 250, 300);
 } 
 void mousePressed(){
   birdYVelocity = -10;
+//println(mouseX,mouseY);
 }
 
 void teleportPipes(){
