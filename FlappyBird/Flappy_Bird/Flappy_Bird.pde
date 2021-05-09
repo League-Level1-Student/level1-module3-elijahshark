@@ -18,8 +18,8 @@ void setup(){
   size(500, 500);
   back = loadImage("flappyBackground.jpg");
   pipe2 = loadImage("pipe2.png");
-  pipe = loadImage("pipe.png");
-  flappybird = loadImage("flappybird.png");
+  pipe = loadImage("birdpipe.jpg");
+  flappybird = loadImage("flappier2.png");
   flappybird.resize(50,50);
   back.resize(width,height);
 
@@ -47,9 +47,8 @@ score++;
   fill(0,0,0);
 text("score = " + score,10,10);
   
-            image (pipe2,250,375);
-            image (pipe,250,-130);
-            image (flappybird, 250, 300);
+            //image (pipe2,250,375);
+            //image (pipe,250,-130);
 } 
 void mousePressed(){
   birdYVelocity = -10;
