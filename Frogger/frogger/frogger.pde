@@ -23,6 +23,9 @@ if(x >= 800){
   x=800;
 }
 }
+void sketch(){
+ int spade = new Car(); 
+}
 void keyPressed()
 {
     if(key == CODED){
@@ -50,7 +53,21 @@ void keyPressed()
 }
 
 class Car {
+ 
   int x;
   int y;
-  
+  int size;
+  int speed;
+  void display()
+  {
+    fill(0,255,0);
+    rect(x , y,  size, 50);
+  }
+  Car(int x, int y, int size, int speed ){
+  this.x=x;
+  this.y=y;
+  this.size=size;
+  this.speed=speed;
+}
+
 }
