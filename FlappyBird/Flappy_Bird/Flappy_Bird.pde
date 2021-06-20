@@ -62,6 +62,7 @@ void teleportPipes(){
     lowerY = upperPipeHeight + pipeGap;
   }
 }
+
 boolean intersectsPipes() { 
          if (birdY < upperPipeHeight && birdX > pipeX && birdX < (pipeX+50)){
             return true; }

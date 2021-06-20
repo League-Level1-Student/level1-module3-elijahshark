@@ -32,9 +32,7 @@ if(x >= 800){
 
 
 }
-/*void sketch(){
- Car spade = new Car(100,100,20,5); 
-}*/
+
 void keyPressed()
 {
     if(key == CODED){
@@ -78,7 +76,12 @@ class Car {
     fill(255,0,0);
     rect(x , y,  size, size);
   }
-  
+  //so you need to make a method and then inside it you;ll have something like
+  //this.x-=this.speed;
+  //that'll make it go left
+  //ok but can i change the speed by changing the .speed
+  //correct int your code where you make the car objects you can change it
+  //alright thanks no problem
   
 
 }
