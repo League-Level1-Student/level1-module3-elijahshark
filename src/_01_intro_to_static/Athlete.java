@@ -4,6 +4,7 @@ public class Athlete {
     static String raceLocation = "New York";
     static String raceStartTime = "9.00am";
 
+    
     String name;
     int speed;
     int bibNumber = 1;
