@@ -17,6 +17,17 @@ spade.display();
 clubs.display();
 hearts.display();
 diamonds.display();
+spade.left();
+clubs.right();
+hearts.left();
+diamonds.right();
+if (intersects(spade) = true){
+  exit;
+}
+intersects(clubs);
+intersects(hearts);
+intersects(diamonds);
+//Frog
 if(y <= 0){
   y=0;
 }
@@ -30,9 +41,29 @@ if(x >= 800){
   x=800;
 }
 
-
+//Car
+if(diamonds.x >= 800) {
+  diamonds.x=0;
 }
-
+if(spade.x <= 0){
+spade.x=800;
+}
+if(clubs.x >= 800){
+clubs.x = 0;
+}
+if(hearts.x <= 0){
+hearts.x = 800;
+}
+}
+boolean intersects(Car car) {
+ if ((y > car.getY() && y < car.getY()+50) &&
+                (x > car.getX() && x < car.getX()+car.getSize())) {
+   return true;
+  }
+ else  {
+  return false;
+ }
+}
 void keyPressed()
 {
     if(key == CODED){
@@ -70,18 +101,25 @@ class Car {
     this.y=y;
     this.size=size;
     this.speed=speed;
-  }
+}
   
   void display() {
     fill(255,0,0);
     rect(x , y,  size, size);
   }
-  //so you need to make a method and then inside it you;ll have something like
-  //this.x-=this.speed;
-  //that'll make it go left
-  //ok but can i change the speed by changing the .speed
-  //correct int your code where you make the car objects you can change it
-  //alright thanks no problem
-  
-
+  void left(){
+  this.x-=this.speed;
+  }
+  void right(){
+   this.x+=this.speed; 
+  }
+  int getX(){
+   return this.x; 
+  }
+  int getY(){
+   return this.y; 
+  }
+  int getSize(){
+   return this.size; 
+  }
 }
